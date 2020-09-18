@@ -24,40 +24,42 @@ export const setAnswered = (dispatch) => {
   dispatch({ type: SET_ANSWERED, payload: true });
 };
 
-
 export const setAnswerIsCorrect = (dispatch, currentCount) => {
-  console.log(currentCount);
   dispatch({ type: SET_IS_ANSWER_CORRECT, payload: true });
   dispatch({ type: SET_CORRECT_ANSWER_COUNT, payload: currentCount });
 };
-
-//The default state of isAnswerCorrect  in answerReducer will be false, hence,
-//when the answer is wrong, we don't have to carry out that computing overhead
 
 export const resetAnswerIsCorrect = (dispatch) => {
   dispatch({ type: SET_IS_ANSWER_CORRECT, payload: false });
 };
 
 export const resetForNextQuestion = (dispatch, newQuestionsSet) => {
-  dispatch({type: SET_IS_ANSWER_CORRECT, payload: false})
-  dispatch({type:SET_ANSWERED, payload: false})
-  dispatch({type: SET_CURRENT_QUESTIONS_SET, payload: newQuestionsSet})
-}
+  dispatch({type: SET_IS_ANSWER_CORRECT, payload: false});
+  dispatch({type:SET_ANSWERED, payload: false});
+  dispatch({type: SET_CURRENT_QUESTIONS_SET, payload: newQuestionsSet});
+};
 
 export const resetForNewQuiz = (dispatch, newQuizzes, push) => {
-  dispatch({type: SET_QUIZZES, payload: newQuizzes})
-  dispatch({type: SET_CORRECT_ANSWER_COUNT, payload: 0})
-  dispatch({type: SET_IS_ANSWER_CORRECT, payload: false})
-  push('/')
-}
+  dispatch({type: SET_QUIZZES, payload: newQuizzes});
+  dispatch({type: SET_CORRECT_ANSWER_COUNT, payload: 0});
+  dispatch({type: SET_IS_ANSWER_CORRECT, payload: false});
+  push('/');
+};
 
 export const resetForAFreshStart = (dispatch, quizzes, newCurrentNoOfTries, push) => {
-  dispatch({type: SET_CORRECT_ANSWER_COUNT, payload: 0})
-  dispatch({type: SET_IS_ANSWER_CORRECT, payload: false})
-  dispatch({type: SET_NO_OF_TRIES, payload: newCurrentNoOfTries})
+  dispatch({type: SET_CORRECT_ANSWER_COUNT, payload: 0});
+  dispatch({type: SET_IS_ANSWER_CORRECT, payload: false});
+  dispatch({type: SET_NO_OF_TRIES, payload: newCurrentNoOfTries});
   dispatch({ type: SET_QUIZZES, payload: quizzes });
-  dispatch({type: SET_CURRENT_QUESTIONS_SET, payload: ''})
+  dispatch({type: SET_CURRENT_QUESTIONS_SET, payload: ''});
   dispatch({ type: SET_CURRENT_QUIZ, payload: '' });
-  push('/')
-}
+  push('/');
+};
 
+export const resetForRetakeQuiz = (dispatch, currentQuiz, push) => {
+    dispatch({type: SET_CORRECT_ANSWER_COUNT, payload: 0});
+    dispatch({type: SET_IS_ANSWER_CORRECT, payload: false});
+    dispatch({ type: SET_CURRENT_QUESTIONS_SET, payload: currentQuiz.questions });
+    dispatch({ type: SET_CURRENT_QUIZ, payload: currentQuiz});
+    push('/question-card');
+};

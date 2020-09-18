@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { quizzes } from './data/quizzes';
-
-import './styles.css';
 import MainContainer from './containers/MainContainer';
 import { SET_QUIZZES } from './redux/actionTypes';
 

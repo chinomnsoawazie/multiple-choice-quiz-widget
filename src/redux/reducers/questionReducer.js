@@ -1,4 +1,3 @@
-//This would have been used if I was doing Option B
 import {
   SET_QUIZZES,
   SET_CURRENT_QUIZ,
@@ -36,7 +35,7 @@ const questionReducer = (state = initialState, action) => {
 
     default:
       return state;
-  }
+  };
 };
 
 export default questionReducer;

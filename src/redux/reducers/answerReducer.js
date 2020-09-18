@@ -38,19 +38,18 @@ const answerReducer = (state = initialState, action) => {
     case SET_CORRECT_ANSWER_COUNT:
       return {
         ...state,
-        correctAnswerCount: initialState.correctAnswerCount + action.payload
-
-      }
+        correctAnswerCount: initialState.correctAnswerCount + action.payload,
+      };
 
     case SET_IS_ANSWER_CORRECT:
       return {
         ...state,
-        isCurrentAnswerRight: action.payload
-      }
+        isCurrentAnswerRight: action.payload,
+      };
 
     default:
       return state;
-  }
+  };
 };
 
 export default answerReducer;
