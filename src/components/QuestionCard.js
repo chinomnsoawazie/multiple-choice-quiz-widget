@@ -12,7 +12,6 @@ const QuestionCard = (props) => {
   const currentQuiz = useSelector((state) => state.allQuestionInfo.currentQuiz);
   const checkIfAnswerIsCorrect = useSelector((state) => state.allAnswerInfo.isCurrentAnswerRight);
   const checkedIfAnswerHasBeenChosen = useSelector((state) => state.allAnswerInfo.answered);
-  const currentNoOfTries = useSelector((state) => state.allAnswerInfo.currentNoOfTries);
   const question = currentQuestionsSet[0]; 
   const [shuffledAnswersToQuestionOptionComponent, setShuffledAnswersToQuestionOpton] = useState([])
 
