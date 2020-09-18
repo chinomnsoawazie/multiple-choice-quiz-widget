@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import QuestionOption from './QuestionOption';
 import { useDispatch, useSelector} from 'react-redux';
-import { resetForNextQuestion, setCurrentRightAnswer, setNoOfTries } from '../redux/action';
+import { resetForNextQuestion, setCurrentRightAnswer} from '../redux/action';
 import {shuffleArray, mySort, searchForCorrectAnsOption} from '../utilities/Utilities'
 import { SET_ANSWERED } from '../redux/actionTypes';
 
