@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch } from 'react-redux';
+import { quizzes } from './data/quizzes';
 
-function App() {
+import './styles.css';
+import MainContainer from './containers/MainContainer';
+import { SET_QUIZZES } from './redux/actionTypes';
+
+const App = () => {
+  const dispatch = useDispatch();
+  //All the quizzes are sent to the store
+  dispatch({ type: SET_QUIZZES, payload: quizzes });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <MainContainer />
+      </div>
   );
-}
+};
 
 export default App;

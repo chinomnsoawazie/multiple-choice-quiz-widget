@@ -1,0 +1,122 @@
+.header {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.welcome {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.optionDiv {
+  font-family: sans-serif;
+  text-align: left;
+  align-items: left;
+  margin-left: 25%;
+  margin-top: 1%;
+}
+
+.chosenAndRight {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 1%;
+  background-color: white;
+  border: 2px solid #4caf50;
+  width: 80%;
+  outline: none;
+}
+
+.chosenAndWrong {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 1%;
+  background-color: white;
+  border: 2px solid red;
+  width: 80%;
+  outline: none;
+}
+
+.notChosenButRight {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 1%;
+  background-color: white;
+  border: 2px solid #4caf50;
+  width: 80%;
+  outline: none;
+}
+
+.nothingChosen {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 1%;
+  background-color: white;
+  border: none;
+  outline: none;
+}
+.notChosenAndWrong {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 1%;
+  background-color: white;
+  width: 80%;
+  outline: none;
+  border: none;
+
+}
+
+.correct {
+  font-size: 25px
+}
+
+.wrong {
+  font-size: 25px
+}
+
+.next {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  margin-top: 0.5%;
+  background-color: white;
+  border: 2px solid #b8bbb8;
+  outline: none;
+}
+.next_big {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  width: 200px;
+  margin-top: 0.5%;
+  background-color: white;
+  border: 2px solid #b8bbb8;
+  outline: none;
+}
+.finish {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  margin-top: 0.5%;
+  background-color: white;
+  border: 2px solid #b8bbb8;
+  outline: none;
+}
+
+.quizButton {
+  font-family: sans-serif;
+  height: 50px;
+  width: 60%;
+  font-size: 20px;
+}
