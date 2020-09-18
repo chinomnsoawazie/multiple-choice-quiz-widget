@@ -51,6 +51,15 @@ const Summary = (props) => {
         }
     }
 
+    //Tried to make the next button clearer
+    const showWhichNext = () => {
+        if (currentQuizes.slice(1).length > 0){
+            return  <button className='next' onClick={() => handleNextClick()}>Next Quiz</button>
+        }else{
+            return  <button className='next' onClick={() => handleNextClick()}>Restart Test</button>
+        }
+    }
+
     return (
         <>
         <h2 className='header'>{currentQuiz.title}</h2>
@@ -65,7 +74,7 @@ const Summary = (props) => {
         </div>
 
         <div style={{textAlign: 'center', marginTop: '10%'}}>
-            <button className='next' onClick={() => handleNextClick()}>Next</button>
+            {showWhichNext()}
             <button className='next_big' onClick={() => handleRetakeClick()}>Retake</button>
         </div>
         </>
