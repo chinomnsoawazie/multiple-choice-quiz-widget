@@ -6,24 +6,17 @@ const QuestionOption = (props) => {
   const { option } = props;
   const dispatch = useDispatch();
   const answered = useSelector((state) => state.allAnswerInfo.answered);
-  const currentCorrectAnswer = useSelector(
-    (state) => state.allAnswerInfo.currentRightAnswer,
-    );
-  const correctAnswerCount = useSelector(
-    (state) => state.allAnswerInfo.correctAnswerCount,
-    );  
+  const currentCorrectAnswer = useSelector((state) => state.allAnswerInfo.currentRightAnswer);
+  const correctAnswerCount = useSelector((state) => state.allAnswerInfo.correctAnswerCount);  
   const [hasThisOptionBeenSelected, setHasThisOptionBeenSelected] = useState(false);
-  const [newRender, setNewRender] = useState(true);
       
   useEffect (() => {
     if (!answered){
       setHasThisOptionBeenSelected(false);
-      setNewRender(true);
     }
   },[answered])      
       
-  const handleOptionClick =  (e) => {
-    e.preventDefault();
+  const handleOptionClick =  () => {
     if (!answered) {
       if (option.id === currentCorrectAnswer.id && option.option === currentCorrectAnswer.option) {
         const newCorrectAnswerCount = correctAnswerCount + 1;
@@ -33,83 +26,61 @@ const QuestionOption = (props) => {
       setHasThisOptionBeenSelected(true);
     }
   };
-      
-  if (
-    // chosen && right = GREEN BORDER
-    answered &&
-    hasThisOptionBeenSelected &&
-    option.id === currentCorrectAnswer.id &&
-    option.option === currentCorrectAnswer.option &&
-    newRender
-  ) {
-    return (
-      <div className="optionDiv">
-        <button className = "chosenAndRight">
-          {option.id}. {option.option}
-        </button>
-      </div>
-    );
-  } else if (
-    //chosen && wrong = RED BORDER && Struck out
-    answered &&
-    hasThisOptionBeenSelected &&
-    option.id !== currentCorrectAnswer.id &&
-    option.option !== currentCorrectAnswer.option &&
-    newRender
-  ) {
 
+  //!conditions for when question has been answered
+  if(answered){
+    //!conditions for selected answers
+    if(hasThisOptionBeenSelected){
+      //?chosen && right = GREEN BORDER
+      if (option.id === currentCorrectAnswer.id && option.option === currentCorrectAnswer.option){
+          return (
+            <div className="optionDiv">
+              <button className = "chosenAndRight">
+                {option.id}. {option.option}
+              </button>
+            </div>
+          )}
+      else{
+          //?chosen && wrong = RED BORDER && Struck out
+          return (
+            <div className="optionDiv">
+              <button className = "chosenAndWrong" >
+                <strike>
+                  {option.id}. {option.option}
+                </strike>
+              </ button>
+            </div>
+          )};
+    //!conditions for non selected answers
+    }else{
+      //?not chosen && right = GREEN BORDER
+      if (option.id === currentCorrectAnswer.id && option.option === currentCorrectAnswer.option){
+          return (
+            <div className="optionDiv">
+              <button className = "notChosenButRight" >
+                {option.id}. {option.option}
+              </ button>
+            </div>
+          )}
+      else {
+        //?not chosen && wrong = NO BORDER
+        return (
+          <div className="optionDiv">
+            <button className = "notChosenAndWrong">
+              {option.id}. {option.option}
+            </button>
+          </div>
+        )};
+    }
+  }
+  else{//!condition for no answer where there is no answer yet = NO BORDER
     return (
-      <div className="optionDiv">
-        <button className = "chosenAndWrong" >
-          <strike>
-            {option.id}. {option.option}
-          </strike>
-        </ button>
-      </div>
-    );
-  } else if (
-    //not chosen && right = GREEN BORDER
-    //another answer CHOSEN is WRONG and THIS is RIght = GREEN
-    answered &&
-    !hasThisOptionBeenSelected &&
-    option.id === currentCorrectAnswer.id &&
-    option.option === currentCorrectAnswer.option && 
-    newRender
-    ) {
-    return (
-      <div className="optionDiv">
-        <button className = "notChosenButRight" >
-          {option.id}. {option.option}
-        </ button>
-      </div>
-    );
-  }  else if (
-    //situation where another answer CHOSEN is RIGHT and hence THIS is WRONG
-    //not chosen && wrong = NO BORDER
-    answered &&
-    !hasThisOptionBeenSelected &&
-    option.id !== currentCorrectAnswer.id &&
-    option.option !== currentCorrectAnswer.option && 
-    newRender
-    ) {
-    return (
-      <div className="optionDiv">
-        <button className = "notChosenAndWrong">
-          {option.id}. {option.option}
-        </button>
-      </div>
-    );
-  } else {
-    //Situation where there is no answer yet
-    //nothing chosen yet =NO BORDER')
-    return (
-      <div className="optionDiv" onClick={(e) => handleOptionClick(e)}>
+      <div className="optionDiv" onClick={() => handleOptionClick()}>
         <button className = "nothingChosen">
           {option.id}. {option.option}
         </button>
       </div>
-    );
-  }
+    )};
 };
 
 export default QuestionOption;
