@@ -4,13 +4,30 @@ import {
   SET_CURRENT_QUESTIONS_SET
 } from '../actionTypes';
 
+const testData = [{
+    title: 'Basics of HTML',
+    questions: [{
+        text: 'Which element is used for a top-level heading?',
+        correctAnswer: 'h1',
+        incorrectAnswers: ['div', 'h0', 'p'],
+      },
+    ],
+  }
+];
+
+
 const initialState = {
   quizzes: '',
   //this is just to give welcome screen useEffect something that won't trigger a re-rendering
-  preventWelcomeScreenRerender: '',
-  currentQuiz: '',
-  currentQuestion: '',
-  currentQuestionsSet: '',
+  // preventWelcomeScreenRerender: '',
+  // currentQuiz: '',
+  // currentQuestionsSet: '',
+
+  //Comment below in and above out for testing
+  currentQuiz: testData[0],
+  currentQuestionsSet: testData[0].questions,
+
+
 };
 
 const questionReducer = (state = initialState, action) => {

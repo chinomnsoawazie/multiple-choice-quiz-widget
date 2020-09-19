@@ -6,13 +6,33 @@ import {
   SET_IS_ANSWER_CORRECT
 } from '../actionTypes';
 
+const testData = [{
+  title: 'Basics of HTML',
+  questions: [{
+      text: 'Which element is used for a top-level heading?',
+      correctAnswer: 'h1',
+      incorrectAnswers: ['div', 'h0', 'p'],
+    },
+  ],
+}];
+
+
+
 const initialState = {
   correctAnswerCount: 0,
   currentNoOfTries: 0,
-  currentRightAnswer: '',
-  answered: false,
-  isCurrentAnswerRight: false,
+  //comment out next three lines for testing
+  // currentRightAnswer: '',
+  // answered: false,
+  // isCurrentAnswerRight: false,
 
+  // //comment below in for testing
+  currentRightAnswer: testData[0].questions[0].correctAnswer,
+  answered: true,
+  // //for right answer test, comment this out
+  // isCurrentAnswerRight: false,
+  // //for wrong answer test comment this out
+  isCurrentAnswerRight: true,
 };
 
 const answerReducer = (state = initialState, action) => {

@@ -6,9 +6,9 @@ import {shuffleArray, mySort, searchForCorrectAnsOption} from '../utilities/Util
 import { SET_ANSWERED } from '../redux/actionTypes';
 
 const QuestionCard = (props) => {
-  const {push} = props;
+  const {push,} = props;
   const dispatch = useDispatch();
-  const currentQuestionsSet = useSelector ((state) => state.allQuestionInfo.currentQuestionsSet);
+  const currentQuestionsSet = useSelector((state) => state.allQuestionInfo.currentQuestionsSet);
   const currentQuiz = useSelector((state) => state.allQuestionInfo.currentQuiz);
   const checkIfAnswerIsCorrect = useSelector((state) => state.allAnswerInfo.isCurrentAnswerRight);
   const checkedIfAnswerHasBeenChosen = useSelector((state) => state.allAnswerInfo.answered);
@@ -60,10 +60,13 @@ const QuestionCard = (props) => {
 
   const buttonToShow = () => {
     if(checkedIfAnswerHasBeenChosen && currentQuestionsSet.length >= 2){
-      return <button className="next" onClick={() => handleNextClick()}> Next Question</button>
+      return <span>next</span>
+      {/* return <button className="next" onClick={() => handleNextClick()}> Next Question</button> */}
     }else if(checkedIfAnswerHasBeenChosen && currentQuestionsSet.length === 1){
       //It made sense to use "Quiz summary here instead of next"
-      return <button className="finish" onClick={() => handleFinishClick()}>Quiz Summary</button>
+            return <span>next</span>
+
+      {/* return <button className="finish" onClick={() => handleFinishClick()}>Quiz Summary</button> */}
     };
   };
 
@@ -75,9 +78,10 @@ const QuestionCard = (props) => {
       <h5>{question.text}</h5>
       <div>{shuffledAnswersToQuestionOptionComponent.map((option) => <QuestionOption key={option.id} option={option} />)}</div>
       <div>{showAnswerFeedBack()}</div>
-      <div>
+      {/* < div data-testid="next-button-div">
         {buttonToShow()}
-      </div>
+      </ div> */}
+      <div data-testid='next-button-here'><span>next-button-here</span></div>
     </div>
     </>
   );
