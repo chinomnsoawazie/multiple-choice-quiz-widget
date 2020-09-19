@@ -60,13 +60,11 @@ const QuestionCard = (props) => {
 
   const buttonToShow = () => {
     if(checkedIfAnswerHasBeenChosen && currentQuestionsSet.length >= 2){
-      return <span>next</span>
-      {/* return <button className="next" onClick={() => handleNextClick()}> Next Question</button> */}
+      // return <span>next</span>
+      return <button className="next" onClick={() => handleNextClick()}> Next Question</button>
     }else if(checkedIfAnswerHasBeenChosen && currentQuestionsSet.length === 1){
       //It made sense to use "Quiz summary here instead of next"
-            return <span>next</span>
-
-      {/* return <button className="finish" onClick={() => handleFinishClick()}>Quiz Summary</button> */}
+      return <button className="finish" onClick={() => handleFinishClick()}>Quiz Summary</button>
     };
   };
 
@@ -78,10 +76,9 @@ const QuestionCard = (props) => {
       <h5>{question.text}</h5>
       <div>{shuffledAnswersToQuestionOptionComponent.map((option) => <QuestionOption key={option.id} option={option} />)}</div>
       <div>{showAnswerFeedBack()}</div>
-      {/* < div data-testid="next-button-div">
+      < div data-testid="next-button-div">
         {buttonToShow()}
-      </ div> */}
-      <div data-testid='next-button-here'><span>next-button-here</span></div>
+      </ div>
     </div>
     </>
   );

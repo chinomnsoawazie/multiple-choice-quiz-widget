@@ -11,7 +11,6 @@ import { createStore, combineReducers } from 'redux';
 import './styles.css'
 
 //create and import mock question and answers reducers
-//the will have the mock (samples from the given data set)
 import answerReducer from './redux/reducers/answerReducer'
 import questionReducer from './redux/reducers/questionReducer';
 
@@ -21,9 +20,10 @@ const rootReducer = combineReducers({
     allQuestionInfo: questionReducer,
 });
 
-it('It checks presence of Next button after question is answered', () => {
+it('It checks presence of "Next Button" after question is answered', () => {
     //Create redux store
     const storeObj = createStore(rootReducer);
     const {getByText} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
-    expect(getByText('next-button-here')).toBeInTheDocument()
+    expect(getByText('Quiz Summary')).toBeInTheDocument()
 })
+
