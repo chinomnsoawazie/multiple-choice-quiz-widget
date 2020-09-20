@@ -30,12 +30,11 @@ const initialState = {
   currentRightAnswer: testData[0].questions[0].correctAnswer,
   answered: true,
   //for right answer test, comment this out
-  // isCurrentAnswerRight: false,
+  isCurrentAnswerRight: false,
   //for wrong answer test comment this out
-  isCurrentAnswerRight: true,
+  // isCurrentAnswerRight: true,
 };
 
-console.log(initialState.currentRightAnswer)
 const answerReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_NO_OF_TRIES:

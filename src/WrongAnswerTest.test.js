@@ -24,15 +24,17 @@ it('check presence of "Next Button" after question is answered', () => {
     expect(getByText('Quiz Summary')).toBeInTheDocument()
 })
 
-it('check presence of "correct" if answered correctly', () => {
+it('check presence of "Incorrect!" if answered incorrectly', () => {
     const {getByText} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
-    expect(getByText('Correct!')).toBeInTheDocument()
+    expect(getByText('Incorrect!')).toBeInTheDocument()
 
 })
 
-it('check that when a right answer is selected, the botton has the right class', () => {
-    const {getByTestId} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
-    const chosenAndRightButton = getByTestId('chosen-correct-answer')
-    expect(chosenAndRightButton).toHaveClass('chosenAndRight')
+it('check that when wrong answer is selected, the button has the right class', () => {
+    const {getAllByTestId} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
+    //chosenAndWronButton returns an array of three because the OptionCard, though rendered 4 times, has the static value of 
+    //'true' for has this option been selected. This leads to 'notChosenAndWrong' condition being met in thrice cases of wrong answers
+    //so if no wrong and and selected condition existed, the response of chosedAndWrongButton would be an empty array
+    const chosenAndWrongButton = getAllByTestId('wrong-answer')[0]
+    expect(chosenAndWrongButton).toHaveClass('chosenAndWrong')
 })
-
