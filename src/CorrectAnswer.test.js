@@ -32,17 +32,7 @@ it('check presence of "correct" if answered correctly', () => {
 
 it('check that when a right answer is selected, it has the right class', () => {
     const {getByTestId} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
-    const chosenAndRightButton = getByTestId('correct-answer')
+    const chosenAndRightButton = getByTestId('chosen-correct-answer')
     expect(chosenAndRightButton).toHaveClass('chosenAndRight')
-})
-
-it('check that when a wrong answer is selected, it has the right class', () => {
-    const {getAllByTestId} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
-    //chosenAndWronButton returns an array of three because the OptionCard, though rendered 4 times, has the static value of 
-    //'true' for has this option been selected. This leads to second condition being met in all cases of wrong answers
-    //so if no wrong and and selected condition existed, the response of chosedAndWrongButton would be an empty array
-    const chosenAndWrongButton = getAllByTestId('wrong-answer')[0]
-    expect(chosenAndWrongButton).toHaveClass('chosenAndWrong')
-
 })
 

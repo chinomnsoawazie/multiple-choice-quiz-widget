@@ -36,7 +36,7 @@ const QuestionOption = (props) => {
       if (option.id === currentCorrectAnswer.id && option.option === currentCorrectAnswer.option){
           return (
             <div className="optionDiv">
-              <button data-testid='correct-answer' className = "chosenAndRight">
+              <button data-testid='chosen-correct-answer' className = "chosenAndRight">
                 {option.id}. {option.option}
               </button>
             </div>
@@ -58,7 +58,7 @@ const QuestionOption = (props) => {
       if (option.id === currentCorrectAnswer.id && option.option === currentCorrectAnswer.option){
           return (
             <div className="optionDiv">
-              <button className = "notChosenButRight" >
+              <button data-testid='not-chosen-but-right-answer' className = "notChosenButRight" >
                 {option.id}. {option.option}
               </ button>
             </div>
@@ -67,7 +67,8 @@ const QuestionOption = (props) => {
         //?not chosen && wrong = NO BORDER
         return (
           <div className="optionDiv">
-            <button className = "notChosenAndWrong">
+            <button data-testid= 'not-chosen-and-wrong-answer'
+            className = "notChosenAndWrong" >
               {option.id}. {option.option}
             </button>
           </div>
