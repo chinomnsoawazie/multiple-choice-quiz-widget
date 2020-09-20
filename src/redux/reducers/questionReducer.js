@@ -18,15 +18,13 @@ const testData = [{
 const initialState = {
   quizzes: '',
   //this is just to give welcome screen useEffect something that won't trigger a re-rendering
-  // preventWelcomeScreenRerender: '',
-  // currentQuiz: '',
-  // currentQuestionsSet: '',
+  preventWelcomeScreenRerender: '',
+  currentQuiz: '',
+  currentQuestionsSet: '',
 
   //Comment below in and above out for testing
-  currentQuiz: testData[0],
-  currentQuestionsSet: testData[0].questions,
-
-
+  // currentQuiz: testData[0],
+  // currentQuestionsSet: testData[0].questions,
 };
 
 const questionReducer = (state = initialState, action) => {

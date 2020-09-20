@@ -15,57 +15,56 @@ const QuestionCard = (props) => {
   const question = currentQuestionsSet[0]; 
   const [shuffledAnswersToQuestionOptionComponent, setShuffledAnswersToQuestionOpton] = useState([]);
 
-  // useEffect(() => {
-  //   if(checkedIfAnswerHasBeenChosen === false){
-  //     const correctAnswer = question.correctAnswer;
-  //     const wrongAnswers = question.incorrectAnswers;
-  //     //combine both correct and incorrect answers to create a whole answer options
-  //     const unshuffledAllAnswers = [...wrongAnswers, correctAnswer];
-  //     //create and suffle the options index
-  //     const unshuffledOptionsList = ['A', 'B', 'C', 'D', 'E', 'F'].slice(0, unshuffledAllAnswers.length);
-  //     const suffledOptionsList = shuffleArray(unshuffledOptionsList);
-  //     //create a new array of objects with key(option) value(option) pairs
-  //     const arrayToPreventModification = unshuffledAllAnswers.map((answerOption, index) => {
-  //       const modifiedOption = {};
-  //       modifiedOption.id = suffledOptionsList[index];
-  //       modifiedOption.option = answerOption;
-  //       return modifiedOption;
-  //     });
-  //     //shuffle  and sort the created array of answer options objects
-  //     const sortedShuffledAnswers = shuffleArray(arrayToPreventModification).sort(mySort);
-  //     //pick out the correct answer and save it in the store
-  //     const correctAnswerObj = searchForCorrectAnsOption(correctAnswer, sortedShuffledAnswers);
-  //     setCurrentRightAnswer(correctAnswerObj, dispatch);
-  //     setShuffledAnswersToQuestionOpton(sortedShuffledAnswers);
-  //   };
-  // }, [checkedIfAnswerHasBeenChosen]);
+  useEffect(() => {
+    if(checkedIfAnswerHasBeenChosen === false){
+      const correctAnswer = question.correctAnswer;
+      const wrongAnswers = question.incorrectAnswers;
+      //combine both correct and incorrect answers to create a whole answer options
+      const unshuffledAllAnswers = [...wrongAnswers, correctAnswer];
+      //create and suffle the options index
+      const unshuffledOptionsList = ['A', 'B', 'C', 'D', 'E', 'F'].slice(0, unshuffledAllAnswers.length);
+      const suffledOptionsList = shuffleArray(unshuffledOptionsList);
+      //create a new array of objects with key(option) value(option) pairs
+      const arrayToPreventModification = unshuffledAllAnswers.map((answerOption, index) => {
+        const modifiedOption = {};
+        modifiedOption.id = suffledOptionsList[index];
+        modifiedOption.option = answerOption;
+        return modifiedOption;
+      });
+      //shuffle  and sort the created array of answer options objects
+      const sortedShuffledAnswers = shuffleArray(arrayToPreventModification).sort(mySort);
+      //pick out the correct answer and save it in the store
+      const correctAnswerObj = searchForCorrectAnsOption(correctAnswer, sortedShuffledAnswers);
+      setCurrentRightAnswer(correctAnswerObj, dispatch);
+      setShuffledAnswersToQuestionOpton(sortedShuffledAnswers);
+    };
+  }, [checkedIfAnswerHasBeenChosen]);
 
-  //comment in below for testing
-
-   useEffect(() => {
-     if (checkedIfAnswerHasBeenChosen) {
-       const correctAnswer = question.correctAnswer;
-       const wrongAnswers = question.incorrectAnswers;
-       //combine both correct and incorrect answers to create a whole answer options
-       const unshuffledAllAnswers = [...wrongAnswers, correctAnswer];
-       //create and suffle the options index
-       const unshuffledOptionsList = ['A', 'B', 'C', 'D', 'E', 'F'].slice(0, unshuffledAllAnswers.length);
-       const suffledOptionsList = shuffleArray(unshuffledOptionsList);
-       //create a new array of objects with key(option) value(option) pairs
-       const arrayToPreventModification = unshuffledAllAnswers.map((answerOption, index) => {
-         const modifiedOption = {};
-         modifiedOption.id = suffledOptionsList[index];
-         modifiedOption.option = answerOption;
-         return modifiedOption;
-       });
-       //shuffle  and sort the created array of answer options objects
-       const sortedShuffledAnswers = shuffleArray(arrayToPreventModification).sort(mySort);
-       //pick out the correct answer and save it in the store
-       const correctAnswerObj = searchForCorrectAnsOption(correctAnswer, sortedShuffledAnswers);
-       setCurrentRightAnswer(correctAnswerObj, dispatch);
-       setShuffledAnswersToQuestionOpton(sortedShuffledAnswers);
-     };
-   }, [checkedIfAnswerHasBeenChosen]);
+  //!comment in below for testing
+  //  useEffect(() => {
+  //    if (checkedIfAnswerHasBeenChosen) {
+  //      const correctAnswer = question.correctAnswer;
+  //      const wrongAnswers = question.incorrectAnswers;
+  //      //combine both correct and incorrect answers to create a whole answer options
+  //      const unshuffledAllAnswers = [...wrongAnswers, correctAnswer];
+  //      //create and suffle the options index
+  //      const unshuffledOptionsList = ['A', 'B', 'C', 'D', 'E', 'F'].slice(0, unshuffledAllAnswers.length);
+  //      const suffledOptionsList = shuffleArray(unshuffledOptionsList);
+  //      //create a new array of objects with key(option) value(option) pairs
+  //      const arrayToPreventModification = unshuffledAllAnswers.map((answerOption, index) => {
+  //        const modifiedOption = {};
+  //        modifiedOption.id = suffledOptionsList[index];
+  //        modifiedOption.option = answerOption;
+  //        return modifiedOption;
+  //      });
+  //      //shuffle  and sort the created array of answer options objects
+  //      const sortedShuffledAnswers = shuffleArray(arrayToPreventModification).sort(mySort);
+  //      //pick out the correct answer and save it in the store
+  //      const correctAnswerObj = searchForCorrectAnsOption(correctAnswer, sortedShuffledAnswers);
+  //      setCurrentRightAnswer(correctAnswerObj, dispatch);
+  //      setShuffledAnswersToQuestionOpton(sortedShuffledAnswers);
+  //    };
+  //  }, [checkedIfAnswerHasBeenChosen]);
 
   const showAnswerFeedBack = () => {
     if (checkedIfAnswerHasBeenChosen && checkIfAnswerIsCorrect) {

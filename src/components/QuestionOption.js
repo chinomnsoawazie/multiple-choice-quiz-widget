@@ -7,8 +7,9 @@ const QuestionOption = (props) => {
   const dispatch = useDispatch();
   const answered = useSelector((state) => state.allAnswerInfo.answered);
   const currentCorrectAnswer = useSelector((state) => state.allAnswerInfo.currentRightAnswer);
-  const correctAnswerCount = useSelector((state) => state.allAnswerInfo.correctAnswerCount);  
-  const [hasThisOptionBeenSelected, setHasThisOptionBeenSelected] = useState(true);
+  const correctAnswerCount = useSelector((state) => state.allAnswerInfo.correctAnswerCount); 
+  //!for tests, swith 'hasThisOptionBeenSelected' as desired 
+  const [hasThisOptionBeenSelected, setHasThisOptionBeenSelected] = useState(false);
       
   useEffect (() => {
     if (!answered){
@@ -26,7 +27,6 @@ const QuestionOption = (props) => {
       setHasThisOptionBeenSelected(true);
     }
   };
-
 
   //!conditions for when question has been answered
   if(answered){
