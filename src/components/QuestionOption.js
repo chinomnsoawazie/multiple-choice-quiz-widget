@@ -8,7 +8,7 @@ const QuestionOption = (props) => {
   const answered = useSelector((state) => state.allAnswerInfo.answered);
   const currentCorrectAnswer = useSelector((state) => state.allAnswerInfo.currentRightAnswer);
   const correctAnswerCount = useSelector((state) => state.allAnswerInfo.correctAnswerCount);  
-  const [hasThisOptionBeenSelected, setHasThisOptionBeenSelected] = useState(false);
+  const [hasThisOptionBeenSelected, setHasThisOptionBeenSelected] = useState(true);
       
   useEffect (() => {
     if (!answered){
@@ -27,6 +27,7 @@ const QuestionOption = (props) => {
     }
   };
 
+
   //!conditions for when question has been answered
   if(answered){
     //!conditions for selected answers
@@ -35,16 +36,16 @@ const QuestionOption = (props) => {
       if (option.id === currentCorrectAnswer.id && option.option === currentCorrectAnswer.option){
           return (
             <div className="optionDiv">
-              <button className = "chosenAndRight">
+              <button data-testid='correct-answer' className = "chosenAndRight">
                 {option.id}. {option.option}
               </button>
             </div>
           )}
-      else{
+      else {
           //?chosen && wrong = RED BORDER && Struck out
           return (
             <div className="optionDiv">
-              <button className = "chosenAndWrong" >
+              <button data-testid='wrong-answer' className = "chosenAndWrong" >
                 <strike>
                   {option.id}. {option.option}
                 </strike>

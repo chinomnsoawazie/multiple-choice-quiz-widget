@@ -1,14 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import '@testing-library/jest-dom'
 import QuestionCard from './components/QuestionCard'
-import QuestionOption from './components/QuestionOption'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux';
-
-
-import './styles.css'
 
 //create and import mock question and answers reducers
 import answerReducer from './redux/reducers/answerReducer'
@@ -19,11 +14,35 @@ const rootReducer = combineReducers({
     allAnswerInfo: answerReducer,
     allQuestionInfo: questionReducer,
 });
+//Create redux store
+const storeObj = createStore(rootReducer);
 
-it('It checks presence of "Next Button" after question is answered', () => {
-    //Create redux store
-    const storeObj = createStore(rootReducer);
+it('check presence of "Next Button" after question is answered', () => {
     const {getByText} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
+    //We are using Quiz summary here because the way the testData is set up, it has only one quiz left. If we wanted to test for 
+    //'Next Question', we would have to increse th no of quizzes in the testData
     expect(getByText('Quiz Summary')).toBeInTheDocument()
+})
+
+it('check presence of "correct" if answered correctly', () => {
+    const {getByText} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
+    expect(getByText('Correct!')).toBeInTheDocument()
+
+})
+
+it('check that when a right answer is selected, it has the right class', () => {
+    const {getByTestId} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
+    const chosenAndRightButton = getByTestId('correct-answer')
+    expect(chosenAndRightButton).toHaveClass('chosenAndRight')
+})
+
+it('check that when a wrong answer is selected, it has the right class', () => {
+    const {getAllByTestId} = render(<Provider store={storeObj}><QuestionCard /></Provider> );
+    //chosenAndWronButton returns an array of three because the OptionCard, though rendered 4 times, has the static value of 
+    //'true' for has this option been selected. This leads to second condition being met in all cases of wrong answers
+    //so if no wrong and and selected condition existed, the response of chosedAndWrongButton would be an empty array
+    const chosenAndWrongButton = getAllByTestId('wrong-answer')[0]
+    expect(chosenAndWrongButton).toHaveClass('chosenAndWrong')
+
 })
 

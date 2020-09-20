@@ -15,7 +15,6 @@ const testData = [{
   }
 ];
 
-
 const initialState = {
   quizzes: '',
   //this is just to give welcome screen useEffect something that won't trigger a re-rendering
