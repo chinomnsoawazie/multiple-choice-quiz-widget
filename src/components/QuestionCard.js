@@ -41,6 +41,7 @@ const QuestionCard = (props) => {
   }, [checkedIfAnswerHasBeenChosen]);
 
   //!comment in below for testing
+  //Comment here
   //  useEffect(() => {
   //    if (checkedIfAnswerHasBeenChosen) {
   //      const correctAnswer = question.correctAnswer;
