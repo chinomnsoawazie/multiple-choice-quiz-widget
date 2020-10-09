@@ -1,4 +1,4 @@
-This widget is build to be a standalone widget that can be modified for any use. Test data is suppplied and it comes with different quizzes, and each quiz has both its questions and their corresponding options which includes the right answer.
+This widget is built to be a standalone widget that can be modified for any use. Test data is suppplied and it comes with different quizzes, and each quiz has both its questions and their corresponding options which includes the right answer.
 
 The test starts out with a welcome screen introducing the first quiz in the quizzes array as shown below
 <img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/welcome-screen.png" style="max-width:90%;">
@@ -6,6 +6,14 @@ The test starts out with a welcome screen introducing the first quiz in the quiz
 On clicked the quiz, eg "Bascs of HTML", the quiz starts from the question with the options randomly displayed each time the question is shown in that quiz. That way the correct answer will not always be an option. The question before it is answered looks like below
 
 <img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/question.png" style="max-width:90%;">
+
+And after it is answerd, if it was answered correctly, the option for the next question appears, and it looks like the image below
+
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/correct.png" style="max-width:90%;">
+
+Wile if the answer is incorrect, it looks like the image below;
+
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/incorrect.png" style="max-width:90%;">
 
 
 
