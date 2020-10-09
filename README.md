@@ -1,3 +1,19 @@
+This widget is build to be a standalone widget that can be modified for any use. Test data is suppplied and it comes with different quizzes, and each quiz has both its questions and their corresponding options which includes the right answer.
+
+The test starts out with a welcome screen introducing the first quiz in the quizzes array as shown below
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/welcome-screen.png" style="max-width:90%;">
+
+On clicked the quiz, eg "Bascs of HTML", the quiz starts from the question with the options randomly displayed each time the question is shown in that quiz. That way the correct answer will not always be an option. The question before it is answered looks like below
+
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/question.png" style="max-width:90%;">
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
