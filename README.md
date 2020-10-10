@@ -15,6 +15,11 @@ Wile if the answer is incorrect, it looks like the image below;
 
 <img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/incorrect.png" style="max-width:90%;">
 
+The last question will have a button that offers to give the summary of performance so far, and will look like the image below;
+
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/last-question-of-a-quiz.png" style="max-width:90%;">
+
+
 
 
 
