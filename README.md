@@ -19,6 +19,11 @@ The last question will have a button that offers to give the summary of performa
 
 <img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/last-question-of-a-quiz.png" style="max-width:90%;">
 
+At the end of the quiz, there will be a summary page stating how many questions was gotten right from the entire qiuz and options to either go to the next quiz or retake the last one as shown by the image below;
+
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/summary-of-quiz.png" style="max-width:90%;">
+
+
 
 
 
