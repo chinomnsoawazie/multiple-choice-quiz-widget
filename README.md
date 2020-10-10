@@ -23,10 +23,9 @@ At the end of the quiz, there will be a summary page stating how many questions 
 
 <img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/summary-of-quiz.png" style="max-width:90%;">
 
+Below is the summary page when the entire test has been completed. It shows how many questions were answered correctly from the last quiz, how many tries has been made of the test, and the options to restart the test, or retake the last quiz as shown below;
 
-
-
-
+<img width="100%" src="https://github.com/chinomnsoawazie/multiple-choice-quiz-widget/blob/master/images/summary-of-test.png" style="max-width:90%;">
 
 
 
@@ -96,8 +95,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 ### Deployment
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# multiple-choice-quiz-widget
